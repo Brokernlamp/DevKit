@@ -6,6 +6,6 @@ coverage/
 *.tmp
 .agents/
 .claude/
-brag-output*/
+
 skills-lock.json
 *MASTER DEVELOPMENT PROMPT*.md
