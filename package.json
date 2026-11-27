@@ -41,12 +41,12 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/brokernlamp/devkit.git"
+    "url": "git+https://github.com/Brokernlamp/DevKit.git"
   },
   "bugs": {
-    "url": "https://github.com/brokernlamp/devkit/issues"
+    "url": "https://github.com/Brokernlamp/DevKit/issues"
   },
-  "homepage": "https://github.com/brokernlamp/devkit#readme",
+  "homepage": "https://github.com/Brokernlamp/DevKit#readme",
   "dependencies": {
     "commander": "^15.1.0"
   },
