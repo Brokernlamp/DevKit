@@ -1,0 +1,11 @@
+export { VERSION } from './config/package-info.js';
+export { findProjectRoot } from './core/project-root.js';
+export { detectStack, type StackInfo } from './core/stack.js';
+export { findSecrets, redactSecrets, type SecretFinding } from './core/redact.js';
+export { readManagedBlock, upsertManagedBlock } from './core/managed-blocks.js';
+export { getGitSnapshot, type GitSnapshot } from './utils/git.js';
+export { applyMemorySync, planMemorySync, type SyncMode, type SyncPlan } from './modules/memory/sync.js';
+export { runMemoryDoctor, type DoctorReport } from './modules/memory/doctor.js';
+export { getMemoryStatus, getNextTasks, type MemoryStatus } from './modules/memory/reports.js';
+export { getReadyTasks, parseTasks, validateTasks, type Task, type TaskReport } from './modules/memory/tasks.js';
+export { runCli } from './cli/program.js';
