@@ -4,5 +4,8 @@ coverage/
 *.tgz
 .DS_Store
 *.tmp
-brag-output/composition/.hyperframes/
-brag-output/composition/node_modules/
+.agents/
+.claude/
+brag-output*/
+skills-lock.json
+*MASTER DEVELOPMENT PROMPT*.md
