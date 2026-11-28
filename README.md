@@ -102,6 +102,55 @@ git add AGENTS.md .project-memory
 git commit -m "Add project memory"
 ```
 
+### Starting DevKit in an ongoing project
+
+Run the setup commands in the root of the project you are already working on:
+
+```bash
+cd /path/to/your-project
+devkit-ai memory init
+devkit-ai memory status
+devkit-ai memory doctor
+```
+
+`memory init` creates `.project-memory/` and `AGENTS.md`. It also detects the current stack, project structure, Git branch, recent commits, and uncommitted files. Existing text is kept, so running it in an existing project does not replace your own notes.
+
+After initialization, open your AI coding agent in that project and give it this prompt:
+
+```text
+Read AGENTS.md and the files in .project-memory/.
+
+Populate the project memory accurately for this existing codebase.
+
+- Use the code and existing documentation as the source of truth.
+- Replace placeholder purpose text in PROJECT.md with a clear description.
+- Review DECISIONS.md and add only decisions that are confirmed by the code or project documentation.
+- Review NEXT.md and replace the starter task with a useful, accurate task list.
+- Use the same task format: ID, Status, Priority, Origin, Depends on, Files, and Acceptance.
+- Mark completed work as done and ongoing work as in-progress.
+- Record current work and uncommitted changes in SESSION.md.
+- Record unresolved bugs or limitations in KNOWN_ISSUES.md.
+- Do not invent tasks, decisions, requirements, or completed work.
+- Do not edit DevKit-managed sections surrounded by devkit:begin and devkit:end markers.
+- Never copy secrets or values from .env or other secret files.
+
+Before you finish, run:
+devkit-ai memory update --summary "Populated project memory for the current codebase"
+devkit-ai memory doctor
+devkit-ai memory status
+```
+
+Review the generated files yourself, especially `PROJECT.md` and `NEXT.md`. DevKit can detect facts about the repository, but it cannot know unstated plans or intent.
+
+For a short follow-up handoff after future work, use:
+
+```bash
+devkit-ai memory update --summary "What changed, what remains, and the next recommended step"
+devkit-ai memory doctor
+git add AGENTS.md .project-memory
+git commit -m "Update project memory"
+```
+
 ## Commands
 
 | Command | What it does |

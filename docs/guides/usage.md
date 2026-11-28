@@ -2,6 +2,30 @@
 
 This guide shows common tasks with Project Memory. Each step is a command you can copy into a terminal. Run them from the root of your project.
 
+## Start DevKit in an ongoing project
+
+From the project's root:
+
+```bash
+cd /path/to/your-project
+devkit-ai memory init
+devkit-ai memory status
+devkit-ai memory doctor
+```
+
+Open the project in an AI coding agent and ask it to:
+
+```text
+Read AGENTS.md and all files in .project-memory/.
+Populate the memory from the existing code and documentation.
+Do not invent work or decisions.
+Add accurate tasks to NEXT.md and confirmed choices to DECISIONS.md.
+Update SESSION.md with the current handoff.
+Do not edit DevKit-managed sections marked devkit:begin/devkit:end.
+Never include secret values.
+Then run devkit-ai memory update --summary "Populated project memory", devkit-ai memory doctor, and devkit-ai memory status.
+```
+
 ## Example 1: Set up memory in a new project
 
 ```bash
