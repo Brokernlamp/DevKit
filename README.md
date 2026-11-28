@@ -17,13 +17,46 @@ DevKit keeps this context in your repository, in files you can read and review, 
 
 DevKit needs **Node.js 20 or newer** and **Git** (Git is optional, but the status features use it).
 
-### Option A: install from npm (once published)
+### Option A: install from npm
 
 The npm package is named `devkit-ai-cli`. It installs a command called `devkit-ai`.
 
 ```bash
 npm install -g devkit-ai-cli
 devkit-ai --help
+```
+
+### Troubleshooting a global install permission error
+
+On macOS or Linux, this error can occur when npm tries to write packages into a system folder:
+
+```text
+EACCES: permission denied
+```
+
+Do not use `sudo npm install -g`. It can create more permission problems.
+
+Use a folder in your home directory instead:
+
+```bash
+mkdir -p ~/.npm-global
+npm config set prefix ~/.npm-global
+echo 'export PATH="$HOME/.npm-global/bin:$PATH"' >> ~/.zshrc
+source ~/.zshrc
+npm install -g devkit-ai-cli
+devkit-ai --help
+```
+
+If you use a shell other than Zsh, add this line to that shell's configuration file instead:
+
+```bash
+export PATH="$HOME/.npm-global/bin:$PATH"
+```
+
+You can also avoid a global install by running DevKit inside a project with:
+
+```bash
+npx --package devkit-ai-cli devkit-ai --help
 ```
 
 ### Option B: run from a local copy (step by step)
